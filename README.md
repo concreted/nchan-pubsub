@@ -12,15 +12,16 @@
 
 ## Checklist
 - [ ] Pubsub working
-    - [x] Server config
-    - [x] Client subscribe
-    - [x] Client publish
+    - [x] Server config - pubsub by id
+    - [x] Client subscribe by id
+    - [x] Client publish by id
     - [x] Client receive queue msgs on connect
         - [ ] Limit to X number
+    - [ ] Keep track of message ID for received msgs
 - [ ] Authentication
     - [ ] Auth revocation
-- [ ] Groups
-    - [ ] Sub to group
-    - [ ] Unsub from group
+- [x] Groups
+    - [x] Sub to group
+    - [x] Unsub from group
 - [ ] Uses Redis
 - [ ] Clusterable
