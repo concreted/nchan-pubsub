@@ -23,5 +23,5 @@
 - [x] Groups
     - [x] Sub to group
     - [x] Unsub from group
-- [ ] Uses Redis
+- [x] Uses Redis Cluster
 - [ ] Clusterable
