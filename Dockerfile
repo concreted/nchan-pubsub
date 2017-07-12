@@ -22,6 +22,7 @@ RUN wget 'http://download.redis.io/redis-stable.tar.gz'
 RUN tar -xzf redis-stable.tar.gz
 WORKDIR /usr/src/redis-stable
 RUN make
+RUN cp src/redis-server /usr/local/bin/
 
 # Deps for Redis Cluster
 RUN apt-get -y install ruby-full telnet
@@ -34,6 +35,8 @@ COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80 443
 
-WORKDIR /usr/src/redis-stable/utils/create-cluster
-CMD ./create-cluster start && yes yes | ./create-cluster create && nginx
-# CMD nginx
+# Use these for cluster
+# WORKDIR /usr/src/redis-stable/utils/create-cluster
+# CMD ./create-cluster start && yes yes | ./create-cluster create && nginx
+
+CMD redis-server --daemonize yes --protected-mode no && nginx
